@@ -1,0 +1,7 @@
+[elasticsearch]
+name=Elasticsearch repository
+baseurl=https://artifacts.elastic.co/packages/6.x/yum
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/GPG-KEY-elasticsearch
+enabled=1
+type=rpm-md
