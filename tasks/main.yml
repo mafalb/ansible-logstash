@@ -22,6 +22,15 @@
     name: logstash
     state: present
 
+- name: systemd service unit does exist
+  stat:
+    path: /etc/systemd/system/logstash.service
+  register: _logstash_systemd_unit
+
+- name: install logstash service unit
+  when: not _logstash_systemd_unit.stat.exists
+  command: /usr/share/logstash/bin/system-install /etc/logstash/startup.options systemd
+
 - name: logstash is started
   service:
     name: logstash
